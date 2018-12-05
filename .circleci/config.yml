@@ -1,0 +1,19 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: tommoulard/criterion:latest
+    steps:
+      - checkout
+      - run:
+          name: C test
+          command: cd c && make check
+      
+          
+          
+      
+          
+          
+      
+          
+     
