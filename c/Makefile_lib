@@ -1,0 +1,22 @@
+CC = gcc
+CFLAGS = -DTESTING -Wall -pedantic -Wextra -std=c99 -Werror -g -fmax-errors=5
+
+DEPS = sample.c
+HEAD = $(DEPS:.c=.h)
+OBJS = $(DEPS:.c=.o)
+BINS = $(DEPS:.c=)
+LIBS = lib$(DEPS:.c=.a)
+
+$(LIBS):$(LIBS)($(OBJS))
+
+
+$(BINS):
+	$(CC) $(CFLAGS) $(DEPS) $(HEAD) -o $(BINS)
+
+clean:
+	rm -f $(BINS) $(LIBS) $(BINS)
+
+.PHONY: clean
+
+# %:%.c
+
