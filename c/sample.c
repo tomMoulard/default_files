@@ -4,7 +4,7 @@
 
 #include "sample.h"
 
-
+// <here goes your code>
 
 #ifdef TESTING
 int main(int argc, char *argv[])
