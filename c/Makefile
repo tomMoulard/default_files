@@ -4,7 +4,7 @@ CFLAGS += -g -fmax-errors=5
 
 HEAD = main.c
 BINS = $(HEAD:.c=)
-THEA = test/main_test.c
+THEA = main_test.c
 TBIN = unit_test
 
 all: $(BINS)
