@@ -1,9 +1,6 @@
-#include "FILE.hh"
+#include "class.hh"
 
-Class CLASS
+CLASS:CLASS()
 {
-    // Class Constructor
-    CLASS() = default;
-    // Class destructor
-    ~CLASS() = default;
-}
+    val = 0;
+};
