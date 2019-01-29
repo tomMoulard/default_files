@@ -1,7 +1,8 @@
 CC = gcc
-CFLAGS = -DTESTING -Wall -pedantic -Wextra -std=c99 -Werror -g -fmax-errors=5
+CFLAGS = -DTESTING -Wall -pedantic -Wextra -std=c99 -Werror
+CFLAGS += -g -fmax-errors=5
 
-DEPS = sample.c
+DEPS = main.c
 HEAD = $(DEPS:.c=.h)
 OBJS = $(DEPS:.c=.o)
 BINS = $(DEPS:.c=)

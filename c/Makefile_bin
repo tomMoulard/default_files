@@ -1,4 +1,5 @@
 CC = gcc
-CFLAGS = -DDEBUG -Wall -pedantic -Wextra -std=c99 -Werror -g -fmax-errors=5
+CFLAGS = -DDEBUG -Wall -pedantic -Wextra -std=c99 -Werror
+CFLAGS += -g -fmax-errors=5
 
 :%.c

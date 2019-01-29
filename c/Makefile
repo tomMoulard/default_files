@@ -1,9 +1,10 @@
 CC = gcc
-CFLAGS = -DTESTING -Wall -pedantic -Wextra -std=c99 -Werror -g -fmax-errors=5
+CFLAGS = -DTESTING -Wall -pedantic -Wextra -std=c99 -Werror
+CFLAGS += -g -fmax-errors=5
 
-HEAD = sample.c
+HEAD = main.c
 BINS = $(HEAD:.c=)
-THEA = test/sample_test.c
+THEA = test/main_test.c
 TBIN = unit_test
 
 all: $(BINS)
