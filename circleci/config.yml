@@ -1,0 +1,10 @@
+version: 2
+jobs:
+  build:
+    docker:
+        - image: tommoulard/criterion:latest
+    steps:
+      - checkout
+      - run:
+          name: "[TEST] Hello, world."
+          command: echo Hello, world.
