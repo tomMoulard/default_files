@@ -1,2 +1,2 @@
 # default_files
-Scaffolding for files in differents languages
+Scaffolding for files in different languages
