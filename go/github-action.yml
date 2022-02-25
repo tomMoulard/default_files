@@ -1,0 +1,52 @@
+name: Build Binaries
+
+on:
+  pull_request:
+    branches:
+      - '*'
+
+env:
+  GO_VERSION: 1.17
+
+jobs:
+
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-20.04, macos-latest, windows-latest ]
+
+    steps:
+      - name: Set up Go ${{ env.GO_VERSION }}
+        uses: actions/setup-go@v2
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      - name: Check out code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Cache Go modules
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/go/pkg/mod
+            ~/.cache/go-build
+            ~/Library/Caches/go-build
+            '%LocalAppData%\go-build'
+          key: ${{ runner.os }}-build-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: ${{ runner.os }}-build-go
+
+      - name: go generate
+        run: |
+          go generate
+          git diff --exit-code
+
+      - name: go mod tidy
+        run: |
+          go mod tidy
+          git diff --exit-code
+
+      - name: Build
+        run: make
